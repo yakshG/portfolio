@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamikaze | Yaksh Goyani</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+    <!-- Back Navigation-->
+    <div class="project-nav">
+        <a href="index.html#kamikaze" class="back-link">
+            <span class="arrow">←</span>
+            <span class="link-text">BACK TO PORTFOLIO</span>
+        </a>
+    </div>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <h1 class="project-page-title">KAMIKAZE</h1>
+        
+        <div class="project-meta">
+            <div class="meta-block">
+                <p class="meta-label">ROLE</p>
+                <p class="meta-value">Lead Programmer</p>
+            </div>
+            
+            <div class="meta-block">
+                <p class="meta-label">TEAM</p>
+                <p class="meta-value">11 members</p>
+            </div>
+
+            <div class="meta-block">
+                <p class="meta-label">ENGINE</p>
+                <p class="meta-value">Unreal 5.4</p>
+            </div>
+            
+            <div class="meta-block">
+                <p class="meta-label">DURATION</p>
+                <p class="meta-value">6 Months</p>
+            </div>
+
+            <div class="meta-block">
+                <p class="meta-label">STATUS</p>
+                <p class="meta-value">Completed</p>
+            </div>
+            
+            <div class="meta-block">
+                <p class="meta-label">LINK</p>
+                <p class="meta-value"><a href="#">Steam</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-container">
+        <!-- Overview -->
+        <section class="project-section">
+            <h2 class="section-heading">OVERVIEW</h2>
+            <p>A fast-paced tactical shooter for 2-4 players in local co-op. Players compete in deathmatches across 4 maps using modular weapons (knife, pistol, rifle) and power-up pickups that alter player physics. The player with the most kills when the 3-minute timer ends wins.</p>
+        </section>
+
+        <!-- Gameplay Video/Image -->
+        <section class="project-section">
+            <div class="media-container">
+                <video src="videos/Kamikaze_Trailer.mp4" alt="Kamikaze Trailer" class="project-media" controls muted loop autoplay>
+            </div>
+        </section>
+
+        <!-- My Contributions -->
+        <section class="project-section">
+            <h2 class="section-heading">MY CONTRIBUTIONS</h2>
+            <div class="content-block">
+                <h3>Core Gameplay Systems</h3>
+                <ul class="content-list">
+                    <li>Health management and damage calculation</li>
+                    <li>Score tracking with kill/death/point statistics</li>
+                    <li>Re-spawn system using designer-placed spawn points with randomization</li>
+                    <li>Weapon switching between knife, pistol, and rifle (semi-auto/auto)</li>
+                    <li>Aim assist for controller support</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Local Multiplayer Infrastructure</h3>
+                <ul class="content-list">
+                    <li>Character selection menu with first-come-first-serve locking that updates UI across all controllers in real-time</li>
+                    <li>Player controller possession with delayed initialization to handle non-default controller spawning</li>
+                    <li>Restart logic that properly removes all local players and clears split-screen views</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Weapons & Power-Ups</h3>
+                <ul class="content-list">
+                    <li>Base weapon system extended for power-up pickups that replace the pistol slot</li>
+                    <li>Reviewed and integrated teammate implementations of physics-altering effects (size scaling, anti-gravity, slippery movement)</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Animations</h3>
+                <ul class="content-list">
+                    <li>Recorded knife attack animations using Xsens mocap software</li>
+                    <li>Retargeted mocap data to player skeleton and blended animations using Animation Blueprints</li>
+                    <li>Integrated and refined player animations in Blueprints for smooth combat feel</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Deployment</h3>
+                <ul class="content-list">
+                    <li>Built and published game to Steam</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>End-Match-UI</h3>
+                <ul class="content-list">
+                    <li>Final scoreboard displaying player names, kills, deaths, and calculated points</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Content Blocks 
+        <section class="project-section">
+            <h2 class="section-heading">MY</h2>
+            
+            <div class="contribution-block">
+                <h3>Core Game Logic & Gameplay Systems</h3>
+                <p>Designed and implemented the foundational game loop, including player state management, score tracking, and match flow. Built a flexible event system to handle game state transitions and player interactions.</p>
+            </div>
+
+            <div class="contribution-block">
+                <h3>Death-Match Mode</h3>
+                <p>Developed the complete death-match system including player respawn logic, spawn point management, and weapons distribution. Implemented score tracking and victory conditions with real-time UI updates.</p>
+            </div>
+
+            <div class="contribution-block">
+                <h3>Modular Weapons System</h3>
+                <p>Created a data-driven weapons framework allowing easy addition of new weapons. Implemented weapon switching, ammo management, and projectile physics. Each weapon features unique fire rates, damage values, and visual effects.</p>
+            </div>
+        </section>
+        -->
+
+        <!-- Technical Challenges -->
+        <section class="project-section">
+            <h2 class="section-heading">KEY CHALLENGES</h2>
+            
+            <div class="challenge-block">
+                <h3>Challenge: Character locking in local multiplayer</h3>
+                <p>Real-time UI updates across all controllers when one player locked a character. Broadcasting events to all player controllers and updating buttons states dynamically.</p>
+            </div>
+
+            <div class="challenge-block">
+                <h3>Challenge: Controller possession timing</h3>
+                <p>Non-default controllers failed to possess pawns on creation. Fixed by adding delayed possession after successful player controller initialization.</p>
+            </div>
+
+            <div class="challenge-block">
+                <h3>Challenge: Local multiplayer debugging</h3>
+                <p>Tracking bugs across 4 simultaneous players and split-screen views. Use of breakpoints and systematic variables tracking and logging strategies.</p>
+            </div>
+        </section>
+
+        
+        <!-- Gallery -->
+        <section class="project-section">
+            <h2 class="section-heading">GALLERY</h2>
+            <div class="gallery-grid">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 1" class="gallery-image">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 2" class="gallery-image">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 3" class="gallery-image">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 4" class="gallery-image">
+            </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="project-section">
+            <h2 class="section-heading">WHAT I LEARNED</h2>
+            <div class="content-block">
+                <ul class="content-list">
+                    <li>Unreal Engine framework architecture (GameMode, PlayerController, Pawn and Actor Lifecycle)</li>
+                    <li>Local multiplayer systems and split-screen management</li>
+                    <li>Engine initialization order and function calls</li>
+                    <li>Team leadership: task delegation, code review, and cross-discipline communication</li>
+                    <li>Steam deployment pipeline</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section class="project-section">
+            <div class="project-links">
+                <a href="#" class="project-button">PLAY GAME</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-text">
+            <p>Developed by Yaksh Goyani | 2026</p>
+            <p>Inspired by Joeb Rogers</p>
+        </div>
+
+        <div class="social-links">
+            <a href="mailto:yakshgoyani@gmail.com" title="email">EMAIL</a>
+            <a href="https://www.linkedin.com/in/ygoyani" target="_blank" title="linkedin">LINKEDIN</a>
+            <a href="https://discord.com/login" target="_blank" title="discord">DISCORD</a>
+            <a href="https://billawatts.itch.io/" target="_blank" title="itch.io">ITCH.IO</a>            
+        </div>
+    </footer>
+</body>
+</html>

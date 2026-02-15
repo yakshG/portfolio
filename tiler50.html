@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiler50 | Yaksh Goyani</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body>
+    <!-- Back Navigation-->
+    <div class="project-nav">
+        <a href="index.html#tiler50" class="back-link">
+            <span class="arrow">←</span>
+            <span class="link-text">BACK TO PORTFOLIO</span>
+        </a>
+    </div>
+
+    <!-- Project Header -->
+    <section class="project-header">
+        <h1 class="project-page-title">TILER 50</h1>
+        
+        <div class="project-meta">            
+            <div class="meta-block">
+                <p class="meta-label">PROJECT TYPE</p>
+                <p class="meta-value">Learning Project</p>
+            </div>
+
+            <div class="meta-block">
+                <p class="meta-label">ENGINE</p>
+                <p class="meta-value">Unity</p>
+            </div>
+
+            <div class="meta-block">
+                <p class="meta-label">LINK</p>
+                <p class="meta-value"><a href="https://billawatts.itch.io/tiler50" target="_blank">itch.io</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-container">
+        <!-- Overview -->
+        <section class="project-section">
+            <h2 class="section-heading">OVERVIEW</h2>
+            <p>A 2D platformer with shooting mechanics, patrolling enemies, collectible coins and level hazards. Built while learning Unity's 2D toolset and C# scripting fundamentals.</p>
+        </section>
+
+        <!-- Gameplay Video/Image -->
+        <section class="project-section">
+            <div class="media-container">
+                <video src="videos/Tiler50_Gameplay.mov" alt="Tiler50 Gameplay" class="project-media" controls muted loop autoplay>
+            </div>
+        </section>
+
+        <!-- My Contributions -->
+        <section class="project-section">
+            <h2 class="section-heading">WHAT I BUILT</h2>
+            <div class="content-block">
+                <h3>Level Design</h3>
+                <ul class="content-list">
+                    <li>2 custom levels using Unity's tilemap system and rule tiles for rapid prototyping</li>
+                    <li>Interactive elements: ladders for vertical traversal, bounce mushrooms with incremental jump height, and traps</li>
+                    <li>Exit portals connecting levels with game session persistence</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Player Systems</h3>
+                <ul class="content-list">
+                    <li>Movement, jumping, shooting mechanics with bullet instantiation, and ladder climbing</li>
+                    <li>3-lives system with respawn at level start on death</li>
+                    <li>Animation states and transitions for player and enemy sprites</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Enemy & Hazards</h3>
+                <ul class="content-list">
+                    <li>Enemy patrol AI using collision detection for ground edges</li>
+                    <li>Enemy collision with player reduces lives</li>
+                    <li>Enemies destroyed on bullet hit</li>
+                    <li>Environmental traps and hazards</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Game Flow</h3>
+                <ul class="content-list">
+                    <li>Lives system: player respawns at current level start after death with level state preserved</li>
+                    <li>Full restart to level 1 after all lives lost</li>
+                    <li>Coin collectibles with score tracking across levels</li>
+                    <li>Cinemachine state-driven camera following player with zoom transitions</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Technical Setup</h3>
+                <ul class="content-list">
+                    <li>Composite colliders for sprite interactions</li>
+                    <li>Prefab variants for reusable level elements</li>
+                    <li>Game session controller managing level transitions and score persistence</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Gallery 
+        <section class="project-section">
+            <h2 class="section-heading">GALLERY</h2>
+            <div class="gallery-grid">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 1" class="gallery-image">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 2" class="gallery-image">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 3" class="gallery-image">
+                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 4" class="gallery-image">
+            </div>
+        </section>
+        -->
+
+        <!-- Key Takeaways -->
+        <section class="project-section">
+            <h2 class="section-heading">WHAT I LEARNED</h2>
+            <div class="content-block">
+                <ul class="content-list">
+                    <li>Unity's 2D workflow: tilemaps, rule tiles, sprite rendering</li>
+                    <li>Lives system and game state management across levels</li>
+                    <li>Object instantiation and projectile mechanics</li>
+                    <li>Cinemachine camera systems</li>
+                    <li>Object instantiation and projectile mechanics</li>
+                    <li>C# scripting fundamentals for game logic</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section class="project-section">
+            <div class="project-links">
+                <a href="https://billawatts.itch.io/tiler50" target="_blank" class="project-button">PLAY GAME</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-text">
+            <p>Developed by Yaksh Goyani | 2026</p>
+            <p>Inspired by Joeb Rogers</p>
+        </div>
+
+        <div class="social-links">
+            <a href="mailto:yakshgoyani@gmail.com" title="email">EMAIL</a>
+            <a href="https://www.linkedin.com/in/ygoyani" target="_blank" title="linkedin">LINKEDIN</a>
+            <a href="https://discord.com/login" target="_blank" title="discord">DISCORD</a>
+            <a href="https://billawatts.itch.io/" target="_blank" title="itch.io">ITCH.IO</a>            
+        </div>
+    </footer>
+</body>
+</html>
