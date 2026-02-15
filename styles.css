@@ -348,13 +348,20 @@ body {
 
 /* -----Project Content List----- */
 .content-block {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .content-block h3 {
     border-left: 3px solid #0A396B;
     padding-left: 10px;
     font-weight: 600;
+}
+
+.content-block p {
+    padding-left: 20px;
+    margin: 10px 0;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .content-list {

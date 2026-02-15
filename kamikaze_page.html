@@ -27,8 +27,8 @@
             </div>
             
             <div class="meta-block">
-                <p class="meta-label">TEAM</p>
-                <p class="meta-value">11 members</p>
+                <p class="meta-label">TEAM SIZE</p>
+                <p class="meta-value">11</p>
             </div>
 
             <div class="meta-block">
@@ -58,7 +58,8 @@
         <!-- Overview -->
         <section class="project-section">
             <h2 class="section-heading">OVERVIEW</h2>
-            <p>A fast-paced tactical shooter for 2-4 players in local co-op. Players compete in deathmatches across 4 maps using modular weapons (knife, pistol, rifle) and power-up pickups that alter player physics. The player with the most kills when the 3-minute timer ends wins.</p>
+            <p>Kamikaze is a 2-4 player <strong>local split-screen</strong> tactical deathmatch shooter. Players compete in a 3-minute deathmatch across four maps using a modular weapon system (knife, pistol, rifle) where highest score wins.</p>
+            <p>I was the solo programmer for the first half of development and later transitioned into Lead Programmer.</p>
         </section>
 
         <!-- Gameplay Video/Image -->
@@ -72,53 +73,70 @@
         <section class="project-section">
             <h2 class="section-heading">MY CONTRIBUTIONS</h2>
             <div class="content-block">
-                <h3>Core Gameplay Systems</h3>
+                <h3>Core Systems</h3>
                 <ul class="content-list">
-                    <li>Health management and damage calculation</li>
-                    <li>Score tracking with kill/death/point statistics</li>
-                    <li>Re-spawn system using designer-placed spawn points with randomization</li>
-                    <li>Weapon switching between knife, pistol, and rifle (semi-auto/auto)</li>
-                    <li>Aim assist for controller support</li>
+                    <li>Centralized all match flow inside GameMode:
+                        <ul class="content-list">
+                            <li>Score tracking per player</li>
+                            <li>Timer management</li>
+                            <li>Win condition logic</li>
+                            <li>Randomized respawn handling</li>
+                        </ul>
                 </ul>
             </div>
 
             <div class="content-block">
-                <h3>Local Multiplayer Infrastructure</h3>
+                <h3>Local Multiplayer</h3>
                 <ul class="content-list">
-                    <li>Character selection menu with first-come-first-serve locking that updates UI across all controllers in real-time</li>
-                    <li>Player controller possession with delayed initialization to handle non-default controller spawning</li>
-                    <li>Restart logic that properly removes all local players and clears split-screen views</li>
+                    <li>Built the full local multiplayer pipeline:
+                        <ul class="content-list">
+                            <li>Multi-controller input handling</li>
+                            <li>PlayerController → Pawn possession</li>
+                            <li>Player-specific spawn assignment</li>
+                        </ul>
                 </ul>
             </div>
 
             <div class="content-block">
-                <h3>Weapons & Power-Ups</h3>
+                <h3>Weapon Systems</h3>
                 <ul class="content-list">
-                    <li>Base weapon system extended for power-up pickups that replace the pistol slot</li>
-                    <li>Reviewed and integrated teammate implementations of physics-altering effects (size scaling, anti-gravity, slippery movement)</li>
+                    <li>Designed a modular weapon system using a shared base class.</li>
+                    <li>Derived Weapons:
+                        <ul class="content-list">
+                            <li>Knife (3 melee animations)</li>
+                            <li>Pistol</li>
+                            <li>Rifle (semi-auto & auto)</li>
+                        </ul>
+                    </li>
+                    <li>Base class extended for power-up pickups that replace the pistol slot</li>
                 </ul>
             </div>
 
             <div class="content-block">
                 <h3>Animations</h3>
                 <ul class="content-list">
-                    <li>Recorded knife attack animations using Xsens mocap software</li>
-                    <li>Retargeted mocap data to player skeleton and blended animations using Animation Blueprints</li>
-                    <li>Integrated and refined player animations in Blueprints for smooth combat feel</li>
+                    <li>Helped record mocap animations.</li>
+                    <li>Integrated and refined animations using Unreal's Animation Blueprint.</li>
                 </ul>
             </div>
 
             <div class="content-block">
-                <h3>Deployment</h3>
+                <h3>Character Selection Locking</h3>
                 <ul class="content-list">
-                    <li>Built and published game to Steam</li>
+                    <li>Designed a first-come-first-serve character selection system:
+                        <ul class="content-list">
+                            <li>Selected characters lock immediately</li>
+                            <li>UI dynamically updates availability</li>
+                            <li>Lock state tied to player index</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
             <div class="content-block">
-                <h3>End-Match-UI</h3>
+                <h3>Steam Build & Publishing</h3>
                 <ul class="content-list">
-                    <li>Final scoreboard displaying player names, kills, deaths, and calculated points</li>
+                    <li>Handled production builds, packaging issues, and final Steam deployment.</li>
                 </ul>
             </div>
         </section>
@@ -146,26 +164,23 @@
 
         <!-- Technical Challenges -->
         <section class="project-section">
-            <h2 class="section-heading">KEY CHALLENGES</h2>
+            <h2 class="section-heading">TECHNICAL CHALLENGES</h2>
             
             <div class="challenge-block">
-                <h3>Challenge: Character locking in local multiplayer</h3>
-                <p>Real-time UI updates across all controllers when one player locked a character. Broadcasting events to all player controllers and updating buttons states dynamically.</p>
-            </div>
-
-            <div class="challenge-block">
-                <h3>Challenge: Controller possession timing</h3>
-                <p>Non-default controllers failed to possess pawns on creation. Fixed by adding delayed possession after successful player controller initialization.</p>
-            </div>
-
-            <div class="challenge-block">
-                <h3>Challenge: Local multiplayer debugging</h3>
-                <p>Tracking bugs across 4 simultaneous players and split-screen views. Use of breakpoints and systematic variables tracking and logging strategies.</p>
+                <h3>Challenge: Pawn Possession in Local Multiplayer</h3>
+                <p><strong>Problem:</strong> PlayerControllers were failing to properly possess spawned pawns due to incorrect initialization timing.</p>
+                <p><strong>Solution: </strong> Traced Unreal's lifecycle flow and used post-initialization function call to ensure proper order of:
+                    <ul class="content-list">
+                        <li>PlayerController initialization</li>
+                        <li>Pawn spawning</li>
+                        <li>Possession execution</li>
+                    </ul>
+                </p>
             </div>
         </section>
 
         
-        <!-- Gallery -->
+        <!-- Gallery
         <section class="project-section">
             <h2 class="section-heading">GALLERY</h2>
             <div class="gallery-grid">
@@ -175,17 +190,25 @@
                 <img src="images/KamiKaZe_Poster.png" alt="Screenshot 4" class="gallery-image">
             </div>
         </section>
+        -->
 
         <!-- Key Takeaways -->
         <section class="project-section">
             <h2 class="section-heading">WHAT I LEARNED</h2>
             <div class="content-block">
                 <ul class="content-list">
-                    <li>Unreal Engine framework architecture (GameMode, PlayerController, Pawn and Actor Lifecycle)</li>
-                    <li>Local multiplayer systems and split-screen management</li>
-                    <li>Engine initialization order and function calls</li>
-                    <li>Team leadership: task delegation, code review, and cross-discipline communication</li>
-                    <li>Steam deployment pipeline</li>
+                    <li>Deep understanding of Unreal Engine framework: 
+                        <ul class="content-list">
+                            <li>GameMode</li>
+                            <li>PlayerController</li>
+                            <li>Pawn</li>
+                            <li>UI architecture</li>
+                            <li>Actor lifecycle</li>
+                        </ul>
+                    </li>
+                    <li>Multiplayer state management</li>
+                    <li>Debugging for multiplayer</li>
+                    <li>Build & release pipeline for Steam</li>
                 </ul>
             </div>
         </section>
