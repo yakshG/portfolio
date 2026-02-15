@@ -98,7 +98,7 @@ body {
 }
 
 .section-content {
-    max-width: 800px;
+    max-width: 900px;
 }
 
 /* ----------Background Section----------- */
@@ -179,6 +179,7 @@ body {
 .tools {
     display: flex;
     flex-direction: row-reverse;
+    margin-right: 90px;
 }
 
 .tool-name {
