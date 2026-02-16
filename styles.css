@@ -453,7 +453,7 @@ body {
     font-weight: 600;
 }
 
-/* Gallery */
+/* Gallery 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -472,6 +472,7 @@ body {
 .gallery-image:hover {
     transform: scale(1.05);
 }
+*/
 
 /* Project Links */
 .project-links {
@@ -639,7 +640,7 @@ footer {
     }
 
     .tools {
-        margin-right: 30px;
+        margin-right: 20px;
         margin-bottom: 10px;
     }
 
@@ -658,7 +659,7 @@ footer {
 
     .skills-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 20px;
     }
 
     .background-wrapper {
@@ -675,6 +676,10 @@ footer {
         flex-direction: column;
         align-items: center;
         margin-bottom: 70px;
+    }
+
+    .footer-text {
+        text-align: center;
     }
 }
 
@@ -715,7 +720,7 @@ footer {
 /* Mobile - overall container spacing */
 @media (max-width: 768px) {
     .container {
-        padding: 0 50px;
+        padding: 0 30px;
     }
 
 }
