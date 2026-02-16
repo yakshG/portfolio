@@ -13,7 +13,7 @@
             <h1>Hello!</h1>
             
             <div class="profile-content">            
-                <h2>I'm <span class="name">Yaksh Goyani</span>, a gameplay programmer focused on building scalable gameplay systems and mechanics in Unreal Engine.</h2>
+                <h2>I'm <span class="name">Yaksh Goyani</span>, a game developer building gameplay systems and mechanics in Unreal Engine and Unity. Currently, completing my MFA in Interactive Media (May 2026) and actively seeking entry-level game development opportunities.</h2>
 
                 <img src="images/profile-picture.jpg"  alt="profile-picture" class="profile-image">
             </div>
@@ -25,7 +25,7 @@
 
         <!--  Featured Projects -->
         <section class="section">
-            <div class="section-title">FEATURED PROJECTS</div>
+            <div class="section-title">PROJECTS</div>
             
             <div class="section-content">
                 <div class="project" id="kamikaze">
@@ -34,7 +34,8 @@
                         <p class="tool-name">Plastic SCM</p>
                         <p class="tool-name">Blueprints</p>
                         <p class="tool-name">UE 5.4</p>
-                        <p class="tool-name">Team Project</p>
+                        <p class="tool-name"><a href="https://store.steampowered.com/app/3688610/KamiKaZe/" target="_blank">Steam</a></p>
+
                     </div>
 
                    
@@ -42,12 +43,12 @@
                         <a href="kamikaze_page.html">Kamikaze</a>
                     </div>
                     <div class="about-project">
-                        <p>Fast-paced local multiplayer tactical shooter for 2-4 players</p>
+                        <p>Local multilayer tactical shooter supporting 2-4 players with split-screen gameplay. Led programming team of three across 6-month development cycle.</p>
                         <p>Key Contributions:
                             <ul>
-                                <li>Core gameplay systems: health, scoring, re-spawn, weapons.</li>
-                                <li>Local multiplayer infrastructure: character selection with real-time locking, controller possession.</li>
-                                <li>Power-up weapon framework and final match statistics display.</li>
+                                <li>Built core gameplay systems: health, scoring, respawn mechanics, and weapon base class with Blueprint inheritance.</li>
+                                <li>Solved controller possession timing issues; implemented character selection with duplicate-prevention locking.</li>
+                                <li>Created end-of-match statistics system with UI backend variable management.</li>
                             </ul>
                         </p>
                     </div>
@@ -59,53 +60,46 @@
                         <p class="tool-name">GitHub</p>
                         <p class="tool-name">Blueprints</p>
                         <p class="tool-name">UE 5.4</p>
-                        <p class="tool-name">Solo Project</p>
+                        <p class="tool-name"><a href="https://billawatts.itch.io/data-mine" target="_blank">itch.io</a></p>
                     </div>
                     <div class="project-title">
                         <a href="datamine_page.html">Data Mine</a>
                     </div>
                     <div class="about-project">
-                        <p>2.5D platformer exploring the human cost of data mining.</p>
+                        <p>2.5D platformer with resource management and melee combat mechanics. Solo project developed from concept to release as a fellowship project.</p>
                         <p>Key Contributions:
                             <ul>
-                                <li>Complete game design and implementation from concept to release.</li>
-                                <li>Mining system with damageable objects and line trace hit detection.</li>
-                                <li>Health/energy/money economy with store system.</li>
-                                <li>Level design using visual metaphor of excel spreadsheet cells.</li>
+                                <li>Designed and implemented complete gameplay loop: mine data, sell for currency, purchase health and energy.</li>
+                                <li>Built melee attack system using line traces with energy cost per hit.</li>
+                                <li>Created interconnected economy system managing four resources with real-time UI updates.</li>
                             </ul>
                         </p>
                     </div>
                 </div>
-        </section>
 
-
-        <!-- Personal Projects -->
-        <section class="section">
-            <div class="section-title">PERSONAL PROJECTS</div>
-            
-            <div class="section-content">
+                <div class="section-content">
                 <div class="project" id="tiler50">
                     <a href="tiler50.html"><img src="images/Tiler 50 gameplay image.png" alt="In-game screenshot" class="project-banner"></a>
                     <div class="tools">
                         <p class="tool-name">C#</p>
                         <p class="tool-name">Unity</p>
-                        <p class="tool-name">Learning Project</p>
                     </div>
                     <div class="project-title">
                         <a href="tiler50.html">Tiler 50</a>
                     </div>
                     <div class="about-project">
-                        <p>2D platformer with shooting mechanics, collectibles, enemies and hazards.</p>
-                        <p>What I built:
+                        <p>2D platformer with core gameplay mechanics: movement, shooting, enemy AI, and collectibles. Built in Unity to develop foundational game development skills.</p>
+                        <p>Key Contributions:
                             <ul>
-                                <li>2 levels with interactive elements (ladders, bounce mushrooms, traps)</li>
-                                <li>Player movement, jumping, and shooting with lives system</li>
-                                <li>Enemy patrol AI and level restart logic.</li>
+                                <li>Implemented player controller with movement, jumping, climbing, and shooting mechanics using C#.</li>
+                                <li>Created enemy patrol AI.</li>
+                                <li>Built interactive level elements: ladders, bounce pads, hazards, and collectible system.</li>
                             </ul>
                         </p>
                     </div>
                 </div>
         </section>
+
 
         <!-- Skills -->
         <section class="section">
@@ -118,9 +112,7 @@
                         <ul>
                             <li>C++</li>
                             <li>C#</li>
-                            <li>Blueprints</li>
-                            <li>HTML5</li>
-                            <li>CSS3</li>
+                            <li>Blueprint Visual Scripting</li>
                         </ul>
                     </div>
 
@@ -136,23 +128,22 @@
                         <h4>TOOLS</h4>
                         <ul>
                             <li>Visual Studio</li>
-                            <li>Maya</li>
                             <li>Plastic SCM</li>
                             <li>Git & GitHub</li>
+                            <li>Maya</li>
                             <li>Trello</li>
-                            <li>Miro</li>
                         </ul>
                     </div>
 
                     <div class="skill-category">
-                        <h4>FIELDS</h4>
+                        <h4>GAMEPLAY SYSTEMS</h4>
                         <ul>
-                            <li>Gameplay</li>
-                            <li>UI</li>
-                            <li>Scripting</li>
-                            <li>Networking</li>
-                            <li>Production</li>
-                            <li>Rigging</li>
+                            <li>Combat & Weapons</li>
+                            <li>Player Movement & Controls</li>
+                            <li>Resource Management</li>
+                            <li>Local Multiplayer</li>
+                            <li>UI implementation</li>
+                            <li>Animation Integration</li>
                         </ul>
                     </div>
                 </div>
@@ -165,11 +156,11 @@
             
             <div class="section-content">                  
                 <div class="background-content">
-                    <p>I'm a gameplay programmer with over two years of experience building and shipping games in Unreal Engine. My work spans solo projects and small teams, with a focus on turning ideas into complete, playable gameplay systems under tight development schedules.</p>
+                    <p>I'm a game developer with experience in Unreal Engine and Unity, working on both solo and team projects. I've led programming on a local multiplayer shooter, built a complete 2.5D platformer from concept to release, and created gameplay systems in C# and Blueprints.</p>
 
-                    <p>I have led programming efforts on team projects, including guiding two programmers on a shipped local multiplayer shooter, and currently leading a team of eight on a new gameplay-focused project. Across projects, I primarily own gameplay systems such as player movement, combat loops, abilities, interactions, and supporting UI logic.</p>
+                    <p>My work focuses on core gameplay: player mechanics, combat systems, resource management, UI implementation, and local multiplayer functionality. I'm currently expanding my skillset into C++ and networked multiplayer systems.</p>
 
-                    <p>I hold a B.Tech in Computer Science & Engineering and am currently pursuing an MFA in Interactive Media. My academic work complements my development experience, particularly in understanding system behavior, iteration, and performance considerations in Unreal Engine. </p>
+                    <p>I hold a B.Tech in Computer Science & Engineering and am pursuing an MFA in Interactive Media at Clark University (graduating May 2026). I am seeking entry-level game development roles where I can contribute to gameplay systems and continue developing my technical skills.</p>
                 </div>
             </div>
         </section>

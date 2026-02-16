@@ -44,7 +44,7 @@
 
                 <div class="meta-block">
                     <p class="meta-label">LINK</p>
-                    <p class="meta-value"><a href="https://billawatts. itch.io/data-mine">itch.io</a></p>
+                    <p class="meta-value"><a href="https://billawatts.itch.io/data-mine" target="_blank">itch.io</a></p>
                 </div>
             </div>
         </main>
@@ -55,8 +55,8 @@
         <!-- Overview -->
         <section class="project-section">
             <h2 class="section-heading">OVERVIEW</h2>
-            <p>A 2.5D platformer where you play as a data scientist trapped in an excel spreadsheet. Navigate rows and columns, physically mine computers for data, and manage your deteriorating health through an in-game economy. The game explores the human perspective of data mining work.</p>
-            <p>Developed as a part of a fellowship program with bi-weekly feedback meetings focused on overall project.</p>
+            <p>A 2.5D platformer where you play as a data scientist trapped in an excel spreadsheet. Navigate rows and columns, physically mine computers for data, and manage your deteriorating health through an in-game economy. The game explores the human cost of data mining work.</p>
+            <p>Developed as a solo part of a fellowship project with bi-weekly feedback meetings focused on overall project direction and design iteration.</p>
         </section>
 
         <!-- Gameplay Video/Image -->
@@ -72,36 +72,51 @@
             <div class="content-block">
                 <h3>Core Gameplay Systems</h3>
                 <ul class="content-list">
-                    <li>Mining mechanic with line trace hit detection during attack animation</li>
-                    <li>Damageable computer objects that yield data on destruction</li>
-                    <li>Economy system balancing health decay, energy consumption, money earned from data sales</li>
-                    <li>Store interface (accessed anytime, pauses gameplay) for purchasing health boosts and energy refills</li>
+                    <li>Mining mechanic using line trace hit detection during attack animation to detect computer objects.</li>
+                    <li>Damageable computer objects with health values that yield data on destruction.</li>
+                    <li>Energy cost system: each mining hit consumes energy, requiring strategic resource management.</li>
                 </ul>
             </div>
 
             <div class="content-block">
-                <h3>Player Systems</h3>
+                <h3>Economy & Resource Management</h3>
                 <ul class="content-list">
-                    <li>2.5D side-scrolling movement with fixed camera angle</li>
-                    <li>Animation montages with notifies to prevent attack button mashing</li>
-                    <li>Integrated free 3D assets for walk, run, jump, and attack animations</li>
+                    <li>Four interconnected resource systems:</li>
+                    <ul class="content-list">
+                        <li>Health - constantly decaying, death occurs at zero</li>
+                        <li>Energy - consumed per mining hit, required to mine</li>
+                        <li>Data - collected from destroyed computers</li>
+                        <li>Money - earned by selling data, used to purchase health and energy</li>
+                    </ul>
+                    <li>Real-time UI updates for all resource values.</li>
+                    <li>Balanced economy through iterative playtesting to ensure optimal difficulty curve.</li>
                 </ul>
             </div>
 
             <div class="content-block">
-                <h3>Weapons & Power-Ups</h3>
+                <h3>Player Movement & Animation</h3>
                 <ul class="content-list">
-                    <li>Base weapon system extended for power-up pickups that replace the pistol slot</li>
-                    <li>Reviewed and integrated teammate implementations of physics-altering effects (size scaling, anti-gravity, slippery movement)</li>
+                    <li>2.5D side scrolling movement: player moves left/right on a 2D plane with 3D graphics.</li>
+                    <li>Animation montages with notifies to prevent attack button mashing and control mining timing.</li>
+                    <li>Integrated free 3D assets from <a href="https://www.mixamo.com/#/" target="_blank">Mixamo</a> with custom walk, run, jump, and attack animations.</li>
+                </ul>
+            </div>
+
+            <div class="content-block">
+                <h3>Level Design & Narrative</h3>
+                <ul class="content-list">
+                    <li>Designed levels using spreadsheet visual metaphor: grid-based layout representing Excel cells.</li>
+                    <li>One-way progression system.</li>
+                    <li>Dialogue system triggered at specific cells to provide narrative context.</li>
                 </ul>
             </div>
 
             <div class="content-block">
                 <h3>UI & Polish</h3>
                 <ul class="content-list">
-                    <li>Main Menu, in-game store, and death/restart screens</li>
-                    <li>Dialogue system triggered at specific cells for narrative context</li>
-                    <li>Sound effects for mining actions and background music</li>
+                    <li>Main Menu and game start/end screens with restart functionality.</li>
+                    <li>In-game HUD displaying all four resources.</li>
+                    <li>Sound effects for mining actions and ambient background music.</li>
                 </ul>
             </div>
         </section>
@@ -133,12 +148,14 @@
             
             <div class="challenge-block">
                 <h3>Challenge: Economy balancing</h3>
-                <p>Finding the right balance between health decay rate, data income, and store prices for optimal player experience. Extensive solo iteration and playtesting with friends to avoid making the game too punishing or too easy.</p>
+                <p><strong>Problem:</strong> Finding the right balance between health decay rate, data income, energy costs and store prices to create an engaging challenge without frustrating players.</p>
+                <p><strong>Solution:</strong> Conducted extensive iterations. Adjusted resource generation/consumption rates. Final balance ensures players must strategically manage mining vs. purchasing to survive.</p>
             </div>
 
             <div class="challenge-block">
                 <h3>Challenge: Conceptualization</h3>
-                <p>Starting from scratch with only a broad theme (human perspective on mining/data mining) required research and iteration to land on a cohesive game concept that connected both ideas. </p>
+                <p><strong>Problem:</strong> Starting from scratch with only a broad theme (human perspective on mining/data mining) required research and iteration to land on a cohesive game concept connecting both ideas.</p>
+                <p><strong>Solution:</strong> Conducted research on data mining labor conditions, experimented with different mechanical metaphors, and iterated on prototypes. The spreadsheet visual metaphor emerged as the strongest connection between physical labor and data work.</p>
             </div>
         </section>
 
@@ -160,10 +177,10 @@
             <h2 class="section-heading">WHAT I LEARNED</h2>
             <div class="content-block">
                 <ul class="content-list">
-                    <li>End-to-end solo game development: concept, design, implementation, and release</li>
-                    <li>Balancing interconnected economy systems through playtesting feedback</li>
-                    <li>Using visual metaphors (spreadsheet structure) to reinforce narrative themes</li>
-                    <li>Iterative design process with external feedback from instructors</li>
+                    <li>End-to-end solo game development: concept ideation, design, implementation, playtesting and release.</li>
+                    <li>Balancing interconnected economy systems through data-driven playtesting.</li>
+                    <li>Using visual metaphors (spreadsheet structure) to reinforce narrative themes mechanically.</li>
+                    <li>Iterative design process with external feedback from instructors.</li>
                 </ul>
             </div>
         </section>

@@ -41,7 +41,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-top: 80px;
     margin-bottom: 150px;
     font-weight: normal;
@@ -60,7 +60,7 @@ body {
 }
 
 .hero h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     width: 90%;
     line-height: 1.4;
     margin-bottom: 20px;
@@ -94,7 +94,7 @@ body {
     top: 40px;
     align-self: start;
     text-align: right;
-    width: 250px;
+    width: 220px;
 }
 
 .section-content {
@@ -145,10 +145,10 @@ body {
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px 100px;
 }
 
 .skill-category h4 {
+    width: 175px;
     margin-top: 4px;
     font-size: 1.25rem;
     font-weight: 600;
@@ -156,6 +156,7 @@ body {
 }
 
 .skill-category ul {
+    width: 180px;
     list-style: none;
 }
 
@@ -188,6 +189,18 @@ body {
     color: #0A396B;
     font-weight: 700;
     border-bottom: 2px solid #0A396B;
+}
+
+.tools a {
+    color: #910000;
+}
+
+.tools a:hover{
+    color: #00965A;
+}
+
+.tools a:active {
+    color: #292929;
 }
 
 .project-title {
@@ -297,6 +310,7 @@ body {
 
 .meta-value a {
     color: #292929;
+    border-bottom: 1px solid #292929;
 }
 
 .meta-value a:hover {
@@ -386,6 +400,14 @@ body {
     color: #910000;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.content-list a{
+    color: #0A396B;
+}
+
+.content-list a:hover {
+    color:#00965A;
 }
 
 /* -----contribution Blocks----- 
@@ -616,6 +638,11 @@ footer {
         grid-column: 1;
     }
 
+    .tools {
+        margin-right: 30px;
+        margin-bottom: 10px;
+    }
+
     .section {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -665,6 +692,9 @@ footer {
         display: none;
     }
 
+    .tools {
+        margin-right: 20px;
+    }
     .section {
         gap: 60px;
     }
