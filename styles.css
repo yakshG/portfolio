@@ -156,7 +156,7 @@ body {
 }
 
 .skill-category ul {
-    width: 180px;
+    width: 175px;
     list-style: none;
 }
 
@@ -640,9 +640,14 @@ footer {
     }
 
     .tools {
-        margin-right: 20px;
+        margin-right: 40px;
         margin-bottom: 10px;
     }
+
+    .tool-name {
+        margin-right: 20px;
+        font-size: 0.8rem;
+    }  
 
     .section {
         grid-template-columns: 1fr;
@@ -660,6 +665,14 @@ footer {
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .skill-category h4{
+        font-size: 1rem;
+    }
+
+    .skill-category li {
+        font-size: 14px;
     }
 
     .background-wrapper {
@@ -698,8 +711,14 @@ footer {
     }
 
     .tools {
-        margin-right: 20px;
+        margin-right: 0px;
     }
+
+    .tool-name {
+        margin-right: 40px;
+        font-size: 0.8rem;
+    }
+
     .section {
         gap: 60px;
     }
