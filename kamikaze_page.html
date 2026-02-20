@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamikaze | Yaksh Goyani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
     <!-- Back Navigation-->
@@ -79,13 +79,18 @@
                 <ul class="content-list">
                     <li>Centralized all match flow inside GameMode:
                         <ul class="content-list">
-                            <li>Score tracking per player</li>
-                            <li>Timer management with countdown display</li>
-                            <li>Win condition logic (highest score at match end)</li>
-                            <li>Randomized respawn handling</li>
+                            <li>Score tracking per player.</li>                               
+                            <li>Timer management with countdown display.</li>
+                            <li>Win condition logic (highest score at match end).</li>
+                            <li>Randomized respawn handling.</li>
                         </ul>
-                        <li>Designed and implemented health system with damage detection and death handling.</li>
+                    <li>Built health system with damage detection and death handling.</li>
                 </ul>
+                <!-- MEDIA 
+                <img src="images/KamiKaZe_Poster.png" alt="">
+                <img src="images/KamiKaZe_Poster.png" alt="">
+                <img src="images/KamiKaZe_Poster.png" alt="">
+                <p class="contribution-media-caption">Optional caption here</p>  -->
             </div>
 
             <div class="content-block">
@@ -93,10 +98,10 @@
                 <ul class="content-list">
                     <li>Built the full local multiplayer pipeline:
                         <ul class="content-list">
-                            <li>Multi-controller input handling (supports 2-4 players)</li>
-                            <li>PlayerController → Pawn possession with proper timing</li>
-                            <li>Player-specific spawn assignment</li>
-                            <li>Split-screen viewport assignment</li>
+                            <li>Multi-controller input handling (supports 2-4 players).</li>
+                            <li>PlayerController → Pawn possession with proper timing.</li>
+                            <li>Player-specific spawn assignment.</li>
+                            <li>Split-screen viewport assignment.</li>
                         </ul>
                 </ul>
             </div>
@@ -105,23 +110,22 @@
                 <h3>Weapon Systems</h3>
                 <ul class="content-list">
                     <li>Designed a modular weapon system using a shared base class.</li>
-                    <li>Implemented three weapon types via Blueprint inheritance:
+                    <li>Created three weapon types via Blueprint inheritance:
                         <ul class="content-list">
                             <li>Knife - melee weapon with 3 attack animations</li>
-                            <li>Pistol - semi automatic ranged weapon</li>
-                            <li>Rifle - automatic ranged weapon</li>
+                            <li>Pistol - semi automatic</li>
+                            <li>Rifle - automatic</li>
                         </ul>
                     </li>
-                    <li>Built weapon switching system and ammo management.</li>
+                    <li>Implemented weapon switching and ammo management.</li>
                 </ul>
             </div>
 
             <div class="content-block">
                 <h3>Animations</h3>
                 <ul class="content-list">
-                    <li>Helped record motion-capture animations for melee attacks.</li>
-                    <li>Integrated and refined animations using Unreal's Animation Blueprint.</li>
-                    <li>Set up animation state machines for movement, attacking, and death states.</li>
+                    <li>Recorded knife attack animations using Xsens motion capture.</li>
+                    <li>Integrated mocap animations and set up animation state machines for movement, attacking, and death states.</li>
                 </ul>
             </div>
 
@@ -130,9 +134,9 @@
                 <ul class="content-list">
                     <li>Designed a first-come-first-serve character selection system:
                         <ul class="content-list">
-                            <li>Selected characters lock immediately</li>
-                            <li>UI dynamically updates character availability across all controllers</li>
-                            <li>Lock state tied to player index for proper tracking</li>
+                            <li>Selected characters lock immediately.</li>
+                            <li>UI updates availability across all controllers.</li>
+                            <li>Lock state tied to player index for proper tracking.</li>
                         </ul>
                     </li>
                 </ul>
@@ -147,84 +151,36 @@
             </div>
         </section>
 
-        <!-- Content Blocks 
-        <section class="project-section">
-            <h2 class="section-heading">MY</h2>
-            
-            <div class="contribution-block">
-                <h3>Core Game Logic & Gameplay Systems</h3>
-                <p>Designed and implemented the foundational game loop, including player state management, score tracking, and match flow. Built a flexible event system to handle game state transitions and player interactions.</p>
-            </div>
-
-            <div class="contribution-block">
-                <h3>Death-Match Mode</h3>
-                <p>Developed the complete death-match system including player respawn logic, spawn point management, and weapons distribution. Implemented score tracking and victory conditions with real-time UI updates.</p>
-            </div>
-
-            <div class="contribution-block">
-                <h3>Modular Weapons System</h3>
-                <p>Created a data-driven weapons framework allowing easy addition of new weapons. Implemented weapon switching, ammo management, and projectile physics. Each weapon features unique fire rates, damage values, and visual effects.</p>
-            </div>
-        </section>
-        -->
-
         <!-- Technical Challenges -->
         <section class="project-section">
             <h2 class="section-heading">TECHNICAL CHALLENGES</h2>
             
             <div class="challenge-block">
-                <h3>Challenge: Pawn Possession in Local Multiplayer</h3>
-                <p><strong>Problem:</strong> PlayerControllers were failing to properly possess spawned pawns due to incorrect initialization timing in Unreal's lifecycle.</p>
-                <p><strong>Solution: </strong> Traced Unreal's actor lifecycle flow and implemented post-initialization function calls to ensure proper order of:
+                <h3>Challenge: Pawn Possession Timing in Local Multiplayer</h3>
+                <p><strong>Problem:</strong> Non-default PlayerControllers were failing to properly possess spawned pawns due to incorrect initialization in Unreal's actor lifecycle.</p>
+                <p><strong>Solution: </strong> Traced Unreal's actor lifecycle flow and implemented possession inside a post-initialization call to ensure the correct order:
                     <ul class="content-list">
                         <li>PlayerController initialization</li>
                         <li>Pawn spawning</li>
                         <li>Possession execution</li>
                     </ul>
-                <p>This resolved timing issues and ensured all players could reliably control their characters across multiple match restarts.</p>
+                <p>This ensured all players could reliably control their characters.</p>
                 </p>
             </div>
 
             <div class="challenge-block">
-                <h3>Challenge: Team Coordination & Code Integration</h3>
-                <p><strong>Problem:</strong> With three programmers working simulataneously .</p>
-                <p><strong>Solution: </strong> Traced Unreal's actor lifecycle flow and implemented post-initialization function calls to ensure proper order of:
-                    <ul class="content-list">
-                        <li>PlayerController initialization</li>
-                        <li>Pawn spawning</li>
-                        <li>Possession execution</li>
-                    </ul>
-                <p>This resolved timing issues and ensured all players could reliably control their characters across multiple match restarts.</p>
-                </p>
+                <h3>Challenge: Merge Conflicts in a Multi-Programmer Team</h3>
+                <p><strong>Problem:</strong> With three programmers working simultaneously on Blueprint assets, merge conflicts on .uasset files were unavoidable. The binary format meant conflicts couldn't be resolved manually.</p>
+                <p><strong>Solution: </strong> Used smart locks in Plastic SCM, which prevented simultaneous edits on the same asset. Combined with clearer communication around file ownership, this eliminated problem for the remainder of the project.</p>
             </div>
         </section>
-
-        
-        <!-- Gallery
-        <section class="project-section">
-            <h2 class="section-heading">GALLERY</h2>
-            <div class="gallery-grid">
-                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 1" class="gallery-image">
-                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 2" class="gallery-image">
-                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 3" class="gallery-image">
-                <img src="images/KamiKaZe_Poster.png" alt="Screenshot 4" class="gallery-image">
-            </div>
-        </section>
-        -->
 
         <!-- Key Takeaways -->
         <section class="project-section">
             <h2 class="section-heading">WHAT I LEARNED</h2>
             <div class="content-block">
                 <ul class="content-list">
-                    <li>Deep understanding of Unreal Engine's gameplay framework: 
-                        <ul class="content-list">
-                            <li>GameMode architecture and match flow management</li>
-                            <li>PlayerController and Pawn relationship</li>
-                            <li>UI architecture with UMG</li>
-                            <li>Actor lifecycle and initialization order</li>
-                        </ul>
-                    </li>
+                    <li>Unreal Engine's gameplay framework: GameMode architecture, PlayerController and Pawn relationship, UMG, and actor lifecycle and initialization order</li>
                     <li>Local Multiplayer implementation: split-screen setup, controller management, player state tracking.</li>
                     <li>Blueprint Architecture: inheritance, interfaces, and modular system design.</li>
                     <li>Team leadership: code reviews and task delegation.</li>
@@ -251,6 +207,7 @@
         <div class="social-links">
             <a href="mailto:yakshgoyani@gmail.com" title="email">EMAIL</a>
             <a href="https://www.linkedin.com/in/ygoyani" target="_blank" title="linkedin">LINKEDIN</a>
+            <a href="https://github.com/yakshG" target="_blank" >GITHUB</a>
             <a href="https://discord.com/users/794162403616227338" target="_blank" title="discord">DISCORD</a>
             <a href="https://billawatts.itch.io/" target="_blank" title="itch.io">ITCH.IO</a>            
         </div>

@@ -4,98 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yaksh Goyani | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
     <section class="hero">
         <div class="hero-content">
             <h1>Hello!</h1>
             
-            <div class="profile-content">            
-                <h2>I'm <span class="name">Yaksh Goyani</span>, a game developer building gameplay systems and mechanics in Unreal Engine and Unity. Currently, completing my MFA in Interactive Media (May 2026) and actively seeking entry-level game development opportunities.</h2>
-
+            <div class="profile-content">          
+                <h2>I'm <span class="name">Yaksh Goyani</span>, a game developer building gameplay systems and mechanics in Unreal Engine and Unity.</h2>
                 <img src="images/profile-picture.jpg"  alt="profile-picture" class="profile-image">
             </div>
+            <h3>Completing my MFA in Interactive Media at Clark University (May 2026). Open to entry-level gameplay programmer roles.</h3>
         </div>
     </section>
 
     <!-- Main Content -->
     <div class="container">
 
-        <!--  Featured Projects -->
+        <!-- Projects -->
         <section class="section">
             <div class="section-title">PROJECTS</div>
             
             <div class="section-content">
+
+                <!-- Kamikaze -->
                 <div class="project" id="kamikaze">
-                    <a href="kamikaze_page.html"><img src="images/KamiKaZe_Poster.png" alt="kamikaze Poster" class="project-banner"></a>
-                    <div class="tools">
-                        <p class="tool-name">Plastic SCM</p>
-                        <p class="tool-name">Blueprints</p>
-                        <p class="tool-name">UE 5.4</p>
-                        <p class="tool-name"><a href="https://store.steampowered.com/app/3688610/KamiKaZe/" target="_blank">Steam</a></p>
-
+                    <div class="project-left">
+                        <a href="kamikaze_page.html">
+                            <img src="images/KamiKaZe_Poster.png" alt="kamikaze Poster" class="project-banner">
+                        </a>
+                        <div class="tools">
+                            <p class="tool-name">Plastic SCM</p>
+                            <p class="tool-name">Blueprints</p>
+                            <p class="tool-name">UE 5.4</p>
+                        </div>
                     </div>
-
-                   
-                    <div class="project-title">
-                        <a href="kamikaze_page.html">Kamikaze</a>
-                    </div>
-                    <div class="about-project">
-                        <p>Local multilayer tactical shooter supporting 2-4 players with split-screen gameplay. Led programming team of three across 6-month development cycle.</p>
-                        <p>Key Contributions:
+                    <div class="project-right">
+                        <div class="project-title">
+                            <a href="kamikaze_page.html">Kamikaze</a>
+                        </div>
+                        <div class="about-project">
+                            <p>Local multiplayer tactical shooter supporting 2-4 players with split-screen gameplay. Led programming team of three across 6-month development cycle.</p>
+                            <p>Key Contributions:</p>
                             <ul>
                                 <li>Built core gameplay systems: health, scoring, respawn mechanics, and weapon base class with Blueprint inheritance.</li>
                                 <li>Solved controller possession timing issues; implemented character selection with duplicate-prevention locking.</li>
                                 <li>Created end-of-match statistics system with UI backend variable management.</li>
                             </ul>
-                        </p>
+                        </div>
+                        <a href="https://store.steampowered.com/app/3688610/KamiKaZe/" target="_blank" class="project-link">VIEW ON STEAM →</a>
                     </div>
                 </div>
 
+                <!-- Finding Keys -->
+                <div class="project" id="findingkeys">
+                    <div class="project-left">
+                        <a href="findingkeys_page.html">
+                            <img src="" alt="Finding Keys Game Image" class="project-banner">
+                        </a>
+                        <div class="tools">
+                            <p class="tool-name">GitHub</p>
+                            <p class="tool-name">C++ / Blueprints</p>
+                            <p class="tool-name">UE 5.5</p>
+                        </div>
+                    </div>
+                    <div class="project-right">
+                        <div class="project-title">
+                            <a href="findingkeys_page.html">Finding Keys</a>
+                        </div>
+                        <div class="about-project">
+                            <p>2-player co-op puzzle game playable over LAN and Steam. Players coordinate to move platforms using pressure plates to collect keys and reach the exit.</p>
+                            <p>Key Contributions:</p>
+                            <ul>
+                                <li>Built a GameInstanceSubsystem handling LAN and Steam session creation, discovery, and joining in C++.</li>
+                                <li>Used Steam Sockets drivers to fix client joining in UE5.5.</li>
+                                <li>Implemented actor replication for player movement, pressure plates, platform movement, and door triggers.</li>
+                            </ul>
+                        </div>
+                        <a href="https://store.steampowered.com/app/3688610/KamiKaZe/" target="_blank" class="project-link">VIEW ON GITHUB →</a>
+                    </div>
+                </div>
+
+                <!-- Data Mine -->
                 <div class="project" id="datamine">
-                    <a href="datamine_page.html"><img src="images/Data Mine Home Page.png" alt="Data Mine Landing Page" class="project-banner"></a>
-                    <div class="tools">
-                        <p class="tool-name">GitHub</p>
-                        <p class="tool-name">Blueprints</p>
-                        <p class="tool-name">UE 5.4</p>
-                        <p class="tool-name"><a href="https://billawatts.itch.io/data-mine" target="_blank">itch.io</a></p>
+                    <div class="project-left">
+                        <a href="datamine_page.html">
+                            <img src="images/Data Mine Home Page.png" alt="Data Mine Landing Page" class="project-banner">
+                        </a>
+                        <div class="tools">
+                            <p class="tool-name">GitHub</p>
+                            <p class="tool-name">Blueprints</p>
+                            <p class="tool-name">UE 5.4</p>
+                        </div>
                     </div>
-                    <div class="project-title">
-                        <a href="datamine_page.html">Data Mine</a>
-                    </div>
-                    <div class="about-project">
-                        <p>2.5D platformer with resource management and melee combat mechanics. Solo project developed from concept to release as a fellowship project.</p>
-                        <p>Key Contributions:
+                    <div class="project-right">
+                        <div class="project-title">
+                            <a href="datamine_page.html">Data Mine</a>
+                        </div>
+                        <div class="about-project">
+                             <p>2.5D platformer with resource management and melee combat mechanic. Solo project developed from concept to release as a fellowship project.</p>
+                            <p>Key Contributions:</p>
                             <ul>
                                 <li>Designed and implemented complete gameplay loop: mine data, sell for currency, purchase health and energy.</li>
                                 <li>Built melee attack system using line traces with energy cost per hit.</li>
                                 <li>Created interconnected economy system managing four resources with real-time UI updates.</li>
                             </ul>
-                        </p>
+                        </div>
+                        <a href="https://billawatts.itch.io/data-mine" target="_blank" class="project-link">PLAY ON ITCH.IO →</a>
                     </div>
                 </div>
 
-                <div class="section-content">
+                <!-- Tiler 50 -->
                 <div class="project" id="tiler50">
-                    <a href="tiler50.html"><img src="images/Tiler 50 gameplay image.png" alt="In-game screenshot" class="project-banner"></a>
-                    <div class="tools">
-                        <p class="tool-name">C#</p>
-                        <p class="tool-name">Unity</p>
+                    <div class="project-left">
+                        <a href="tiler50.html">
+                            <img src="images/Tiler 50 gameplay image.png" alt="In game screenshot of the game"class="project-banner">
+                        </a>
+                        <div class="tools">
+                            <p class="tool-name">C#</p>
+                            <p class="tool-name">Unity</p>
+                        </div>
                     </div>
-                    <div class="project-title">
-                        <a href="tiler50.html">Tiler 50</a>
-                    </div>
-                    <div class="about-project">
-                        <p>2D platformer with core gameplay mechanics: movement, shooting, enemy AI, and collectibles. Built in Unity to develop foundational game development skills.</p>
-                        <p>Key Contributions:
+                    <div class="project-right">
+                        <div class="project-title">
+                            <a href="tiler50.html">Tiler 50</a>
+                        </div>
+                        <div class="about-project">
+                             <p>2D platformer with core gameplay mechanics: movement, shooting, enemy AI, and collectibles. Built in Unity to develop foundational game development skills.</p>
+                            <p>Key Contributions:</p>
                             <ul>
                                 <li>Implemented player controller with movement, jumping, climbing, and shooting mechanics using C#.</li>
                                 <li>Created enemy patrol AI.</li>
                                 <li>Built interactive level elements: ladders, bounce pads, hazards, and collectible system.</li>
                             </ul>
-                        </p>
+                        </div>
+                        <a href="https://billawatts.itch.io/tiler50" target="_blank" class="project-link">PLAY ON ITCH.IO →</a>
                     </div>
                 </div>
         </section>
@@ -136,14 +181,13 @@
                     </div>
 
                     <div class="skill-category">
-                        <h4>GAMEPLAY SYSTEMS</h4>
+                        <h4>ADDITIONAL</h4>
                         <ul>
-                            <li>Combat & Weapons</li>
-                            <li>Player Movement & Controls</li>
-                            <li>Resource Management</li>
-                            <li>Local Multiplayer</li>
-                            <li>UI implementation</li>
-                            <li>Animation Integration</li>
+                            <li>Networking [UE5]</li>
+                            <li>Rigging [Maya]</li>
+                            <li>Production</li>
+                            <li>User Interface</li>
+                            <li>Animations</li>
                         </ul>
                     </div>
                 </div>
@@ -156,14 +200,13 @@
             
             <div class="section-content">                  
                 <div class="background-content">
-                    <p>I'm a game developer with experience in Unreal Engine and Unity, working on both solo and team projects. I've led programming on a local multiplayer shooter, built a complete 2.5D platformer from concept to release, and created gameplay systems in C# and Blueprints.</p>
+                    <p>I'm a game developer with experience in Unreal Engine and Unity, focused on core gameplay systems - combat, player mechanics, resource management, local and online multiplayer. I've shipped a game to Steam as lead programmer on a 11-person team, built a solo project from concept to release, and independently implemented LAN and Steam networking in UE5.5.</p>
 
-                    <p>My work focuses on core gameplay: player mechanics, combat systems, resource management, UI implementation, and local multiplayer functionality. I'm currently expanding my skillset into C++ and networked multiplayer systems.</p>
-
-                    <p>I hold a B.Tech in Computer Science & Engineering and am pursuing an MFA in Interactive Media at Clark University (graduating May 2026). I am seeking entry-level game development roles where I can contribute to gameplay systems and continue developing my technical skills.</p>
+                    <p>I hold a B.Tech in Computer Science & Engineering and am completing an MFA in Interactive Media at Clark University (May 2026). Seeking entry-level game development roles where I can contribute to gameplay systems and continue developing my technical skills.</p>
                 </div>
             </div>
         </section>
+
         <a href="resume/YakshGoyaniResume.pdf" target="_blank" class="resume">RESUME</a>
     </div>
 
@@ -177,6 +220,7 @@
         <div class="social-links">
             <a href="mailto:yakshgoyani@gmail.com" title="email">EMAIL</a>
             <a href="https://www.linkedin.com/in/ygoyani" target="_blank" title="linkedin">LINKEDIN</a>
+            <a href="https://github.com/yakshG" target="_blank" >GITHUB</a>
             <a href="https://discord.com/users/794162403616227338" target="_blank" title="discord">DISCORD</a>
             <a href="https://billawatts.itch.io/" target="_blank" title="itch.io">ITCH.IO</a>            
         </div>
