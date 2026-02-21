@@ -440,7 +440,9 @@ body {
 .content-block img, .content-block video {
     flex: 0 0 45%;
     width: 45%;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
     padding: 5px;
     
 }
@@ -632,7 +634,8 @@ footer {
     }
 
     .content-block img, .content-block video {
-        width: 60%;
+        width: 70%;
+        height: auto;
     }
 
     .project-links {
