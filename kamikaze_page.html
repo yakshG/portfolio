@@ -92,24 +92,25 @@
 
             <div class="content-block">
                 <div class="content-text">
-                <h3>Local Multiplayer</h3>
-                <ul class="content-list">
-                    <li>Built the full local multiplayer pipeline:
-                        <ul class="content-list">
-                            <li>Multi-controller input handling (supports 2-4 players).</li>
-                            <li>PlayerController → Pawn possession with proper timing.</li>
-                            <li>Player-specific spawn assignment.</li>
-                            <li>Split-screen viewport assignment.</li>
-                        </ul>
-                </ul>
+                    <h3>Local Multiplayer</h3>
+                    <ul class="content-list">
+                        <li>Built the full local multiplayer pipeline:
+                            <ul class="content-list">
+                                <li>Multi-controller input handling (supports 2-4 players).</li>
+                                <li>PlayerController → Pawn possession with proper timing.</li>
+                                <li>Player-specific spawn assignment.</li>
+                                <li>Split-screen viewport assignment.</li>
+                            </ul>
+                    </ul>
                 </div>
+                <img src="images/Local Multiplayer flowchart.png" alt="GameMode Local Multiplayer flow chart">
             </div>
 
             <div class="content-block">
                 <div class="content-text">
                 <h3>Weapon Systems</h3>
                 <ul class="content-list">
-                    <li>Designed a modular weapon system using a shared base class.</li>
+                    <li>Designed a modular weapon system with pickup ability using a shared base class.</li>
                     <li>Created three weapon types via Blueprint inheritance:
                         <ul class="content-list">
                             <li>Knife - melee weapon with 3 attack animations</li>
@@ -134,17 +135,18 @@
 
             <div class="content-block">
                 <div class="content-text">
-                <h3>Character Selection Locking</h3>
-                <ul class="content-list">
-                    <li>Designed a first-come-first-serve character selection system:
-                        <ul class="content-list">
-                            <li>Selected characters lock immediately.</li>
-                            <li>UI updates availability across all controllers.</li>
-                            <li>Lock state tied to player index for proper tracking.</li>
-                        </ul>
-                    </li>
-                </ul>
+                    <h3>Character Selection Locking</h3>
+                    <ul class="content-list">
+                        <li>Designed a first-come-first-serve character selection system:
+                            <ul class="content-list">
+                                <li>Selected characters lock immediately.</li>
+                                <li>UI updates availability across all controllers.</li>
+                                <li>Lock state tied to player index for proper tracking.</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
+                <video src="videos/Kmkz_CharacterSelection.mp4" autoplay muted loop></video>
             </div>
 
             <div class="content-block">
