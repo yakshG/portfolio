@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Keys | Yaksh Goyani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Back Navigation-->
+    <div class="project-nav">
+        <a href="index.html#findingkeys" class="back-link">
+            <span class="arrow">←</span>
+            <span class="link-text">BACK TO PORTFOLIO</span>
+        </a>
+    </div>
+
+    <!-- Project Header -->
+    <section class="project-header">
+    <main>
+        <h1 class="project-page-title">FINDING KEYS</h1>
+        
+        <div class="project-meta">            
+            <div class="meta-block">
+                <p class="meta-label">ROLE</p>
+                <p class="meta-value">Solo Developer</p>
+            </div>
+
+            <div class="meta-block">
+                <p class="meta-label">ENGINE</p>
+                <p class="meta-value">Unreal 5.5</p>
+            </div>
+
+             <div class="meta-block">
+                    <p class="meta-label">DURATION</p>
+                    <p class="meta-value">1 Month</p>
+                </div>
+
+            <div class="meta-block">
+                    <p class="meta-label">STATUS</p>
+                    <p class="meta-value">Released</p>
+            </div>
+
+            <div class="meta-block">
+                <p class="meta-label">LINK</p>
+                <p class="meta-value"><a href="https://billawatts.itch.io/finding-keys" target="_blank">itch.io</a></p>
+            </div>
+        </div>
+    </main>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-container">
+        <!-- Overview -->
+        <section class="project-section">
+            <h2 class="section-heading">OVERVIEW</h2>
+            <p>A <strong>2-player online co-op puzzle game</strong> set in a stylized Egypt environment. Both players must find and collect keys hidden throughout the level to unlock the main pyramid door. Puzzles require coordination:  pressure plates, moving platforms, and locked doors are all designed around players working together.</p>
+            <p>Built while learning online multiplayer development in Unreal Engine 5.5, independently adapted from UE5.2 course material.</p>
+        </section>
+
+        <!-- Gameplay Video/Image -->
+        <section class="project-section">
+            <div class="media-container">
+                <video src="videos/FindingKeys_Trailer.mp4" alt="Finding Keys Trailer" class="project-media" controls muted loop autoplay></video>
+            </div>
+        </section>
+
+        <!-- My Contributions -->
+        <section class="project-section">
+            <h2 class="section-heading">WHAT I BUILT</h2>
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Puzzle Layout & Coordination</h3>
+                    <ul class="content-list">
+                        <li><strong>Pressure plate system</strong>: plates triggered by players or moveable boxes placed around the level. Plates must stay active, releasing any plate closes the linked door immediately.</li>
+                        <li><strong>Key collection & door logic</strong>: main pyramid door requires all 4 keys. A secondary door requires 3 simultaneous pressure plates (one player, two boxes), creating a coordination puzzle where one player holds while the other fetches the key.</li>
+                        <li><strong>Moving platform</strong>: triggered by pressure plates, requiring players to coordinate to reach elevated areas.</li>
+                    </ul>
+                </div>
+                <video src="videos/FindingKeys_PuzzleSystems.mp4" autoplay loop muted></video>
+            </div>
+
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Multiplayer Subsystem</h3>
+                    <ul class="content-list">
+                        <li>Built a custom <strong><a href="https://github.com/yakshG/ue5.5-multiplayer-subsystem" target="_blank">GameInstanceSubsystem</a></strong> in C++ handling session creation, discovery, joining, and destruction for both LAN and Steam.</li>
+                        <li>Automatic LAN/Steam detection on initialization: if Steam is running and configured, the subsystem uses Steam; otherwise falls back to LAN via NULL subsystem.</li>
+                        <li><strong>LAN</strong>: host creates a named session, client searches by name and joins directly.</li>
+                        <li><strong>Steam</strong>: session joined via overlay invite using OnSessionUserInviteAccepted — client automatically travels on invite acceptance.</li>
+                        <li>Blueprint-assignable delegates for session creation and join results for UI binding.</li>
+                    </ul>
+                </div>
+                <video src="videos/FindingKeys_Sessions.mp4" autoplay loop muted></video>
+            </div>
+
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>Level Design</h3>
+                    <ul class="content-list">
+                        <li>Single level set in a <a href="https://www.fab.com/listings/c935ca3e-dbb1-4b7d-a080-65de129c60bd" target="_blank">stylized Egypt</a> environment using free assets from Fab.</li>
+                        <li>Layout designed around co-op dependency: key puzzles are intentionally unsolvable without both players present.</li>
+                        <li>Vertical traversal via moving platforms gated behind pressure plate coordination.</li>
+                    </ul>
+                </div>
+                <video src="videos/FindingKeys_LevelDesign.mp4" autoplay loop muted></video>
+            </div>
+
+        <!-- Technical Challenges -->
+        <section class="project-section">
+            <h2 class="section-heading">CHALLENGES</h2>
+            
+            <div class="challenge-block">
+                <h3>Challenge: Steam session joining silently failing in UE5.5</h3>
+                <p><strong>Problem:</strong> Sessions were found and returned correctly, but joining via Steam consistently failed with no error — the join call succeeded internally but the client never traveled to the host.</p>
+                <p><strong>Solution:</strong> The default OnlineSubsystemSteam configuration from the UE5.2 course material does not behave the same in UE5.5 due to changes in net driver initialization. Switching to the Steam Sockets plugin and updating the net driver to SteamSocketsNetDriver helped, but the fix also required adding specific session settings during discovery — without those settings present in the search result, the client had no information to resolve the connection string and never traveled.</p>
+            </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="project-section">
+            <h2 class="section-heading">WHAT I LEARNED</h2>
+            <div class="content-block">
+                <ul class="content-list">
+                    <li>Unreal's replication system: replicated variables, RPCs, and authority/client separation.</li>
+                    <li>Online Subsystem architecture: session lifecycle, LAN vs. Steam behavior, and net driver configuration.</li>
+                    <li>C++ subsystem design: GameInstanceSubsystem, delegates, and Blueprint exposure.</li>
+                    <li>How to debug engine-version-specific issues independently when course material becomes outdated.</li>
+                    <li>Co-op puzzle design: structuring puzzles around two-player dependency rather than single-player mechanics.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <section class="project-section">
+            <div class="project-links">
+                <a href="https://billawatts.itch.io/finding-keys" target="_blank" class="project-button">PLAY GAME</a>
+                <a href="https://github.com/yakshG/finding-keys-ue5" target="_blank" class="project-button">VIEW SOURCE</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-text">
+            <p>Developed by Yaksh Goyani | 2026</p>
+            <p>Inspired by Joeb Rogers</p>
+        </div>
+
+        <div class="social-links">
+            <a href="mailto:yakshgoyani@gmail.com" title="email">EMAIL</a>
+            <a href="https://www.linkedin.com/in/ygoyani" target="_blank" title="linkedin">LINKEDIN</a>
+            <a href="https://github.com/yakshG" target="_blank" >GITHUB</a>
+            <a href="https://discord.com/users/794162403616227338" target="_blank" title="discord">DISCORD</a>
+            <a href="https://billawatts.itch.io/" target="_blank" title="itch.io">ITCH.IO</a>          
+        </div>
+    </footer>
+</body>
+</html>
