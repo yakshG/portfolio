@@ -34,8 +34,13 @@
 
                 <div class="meta-block">
                     <p class="meta-label">ENGINE</p>
-                    <p class="meta-value">Unreal 5.4</p>
+                    <p class="meta-value">UE 5.4</p>
                 </div>
+
+                <div class="meta-block">
+                <p class="meta-label">TOOLS</p>
+                <p class="meta-value">Plastic SCM, Xsens</p>
+            </div>
             
                 <div class="meta-block">
                     <p class="meta-label">DURATION</p>
@@ -61,7 +66,6 @@
         <section class="project-section">
             <h2 class="section-heading">OVERVIEW</h2>
             <p>Kamikaze is a 2-4 player <strong>local split-screen</strong> tactical deathmatch shooter. Players compete in a 3-minute deathmatch across four maps using a modular weapon system (knife, pistol, rifle) where highest score wins.</p>
-            <p>I was the solo programmer for the first half of development and later transitioned into Lead Programmer, leading a programming team of 3 - onboarding two new developers and delegating feature work built on top of the core systems.</p>
         </section>
 
         <!-- Gameplay Video/Image -->
@@ -71,9 +75,9 @@
             </div>
         </section>
 
-        <!-- My Contributions -->
+        <!-- Contributions -->
         <section class="project-section">
-            <h2 class="section-heading">MY CONTRIBUTIONS</h2>
+            <h2 class="section-heading">CONTRIBUTIONS</h2>
             <div class="content-block">
                 <div class="content-text">
                 <h3>Core Gameplay Systems</h3>
@@ -101,9 +105,11 @@
                                 <li>Player-specific spawn assignment.</li>
                                 <li>Split-screen viewport assignment.</li>
                             </ul>
+                        </li>
+                        <li>Local Multiplayer Flow Diagram →</li>
                     </ul>
                 </div>
-                <img src="images/Local Multiplayer flowchart.png" alt="GameMode Local Multiplayer flow chart">
+                <img src="images/Local Multiplayer flowchart.png" alt="Local Multiplayer Flow Diagram">
             </div>
 
             <div class="content-block">
@@ -162,7 +168,7 @@
 
         <!-- Technical Challenges -->
         <section class="project-section">
-            <h2 class="section-heading">TECHNICAL CHALLENGES</h2>
+            <h2 class="section-heading">POST MORTEM</h2>
             
             <div class="challenge-block">
                 <h3>Challenge: Pawn Possession Timing in Local Multiplayer</h3>
@@ -181,20 +187,6 @@
                 <h3>Challenge: Merge Conflicts in a Multi-Programmer Team</h3>
                 <p><strong>Problem:</strong> With three programmers working simultaneously on Blueprint assets, merge conflicts on .uasset files were unavoidable. The binary format meant conflicts couldn't be resolved manually.</p>
                 <p><strong>Solution: </strong> Used smart locks in Plastic SCM, which prevented simultaneous edits on the same asset. Combined with clearer communication around file ownership, this eliminated the problem for the remainder of the project.</p>
-            </div>
-        </section>
-
-        <!-- Key Takeaways -->
-        <section class="project-section">
-            <h2 class="section-heading">WHAT I LEARNED</h2>
-            <div class="content-block">
-                <ul class="content-list">
-                    <li>Unreal Engine's gameplay framework: GameMode architecture, PlayerController and Pawn relationship, UMG, and actor lifecycle and initialization order</li>
-                    <li>Local Multiplayer implementation: split-screen setup, controller management, player state tracking.</li>
-                    <li>Blueprint Architecture: inheritance, interfaces, and modular system design.</li>
-                    <li>Team leadership: code reviews and task delegation.</li>
-                    <li>Build & release pipeline for Steam deployment.</li>
-                </ul>
             </div>
         </section>
 
