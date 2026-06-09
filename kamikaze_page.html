@@ -6,6 +6,7 @@
     <title>Kamikaze | Yaksh Goyani</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="nav.js" defer></script>
 </head>
 <body>
     <!-- Back Navigation-->
@@ -14,6 +15,7 @@
             <span class="arrow">←</span>
             <span class="link-text">BACK TO PORTFOLIO</span>
         </a>
+        <div class="nav-social"></div>
     </div>
 
     <!-- Project Header -->
@@ -39,7 +41,7 @@
 
                 <div class="meta-block">
                 <p class="meta-label">TOOLS</p>
-                <p class="meta-value">Plastic SCM, Xsens</p>
+                <p class="meta-value">Blueprints, Plastic SCM, Xsens</p>
             </div>
             
                 <div class="meta-block">
@@ -66,6 +68,7 @@
         <section class="project-section">
             <h2 class="section-heading">OVERVIEW</h2>
             <p>Kamikaze is a 2-4 player <strong>local split-screen</strong> tactical deathmatch shooter. Players compete in a 3-minute deathmatch across four maps using a modular weapon system (knife, pistol, rifle) where highest score wins.</p>
+            <p>I was the solo programmer for the first half of development and later transitioned into Lead Programmer, leading a programming team of 3 - onboarding two new developers and delegating feature work built on top of the core systems.</p>
         </section>
 
         <!-- Gameplay Video/Image -->
@@ -182,12 +185,6 @@
                 <p>This ensured all players could reliably control their characters.</p>
                 </p>
             </div>
-
-            <div class="challenge-block">
-                <h3>Challenge: Merge Conflicts in a Multi-Programmer Team</h3>
-                <p><strong>Problem:</strong> With three programmers working simultaneously on Blueprint assets, merge conflicts on .uasset files were unavoidable. The binary format meant conflicts couldn't be resolved manually.</p>
-                <p><strong>Solution: </strong> Used smart locks in Plastic SCM, which prevented simultaneous edits on the same asset. Combined with clearer communication around file ownership, this eliminated the problem for the remainder of the project.</p>
-            </div>
         </section>
 
         <!-- Links -->
@@ -197,21 +194,5 @@
             </div>
         </section>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-text">
-            <p>Developed by Yaksh Goyani | 2026</p>
-            <p>Inspired by Joeb Rogers</p>
-        </div>
-
-        <div class="social-links">
-            <a href="mailto:yakshgoyani@gmail.com" title="email">EMAIL</a>
-            <a href="https://www.linkedin.com/in/ygoyani" target="_blank" title="linkedin">LINKEDIN</a>
-            <a href="https://github.com/yakshG" target="_blank" >GITHUB</a>
-            <a href="https://discord.com/users/794162403616227338" target="_blank" title="discord">DISCORD</a>
-            <a href="https://billawatts.itch.io/" target="_blank" title="itch.io">ITCH.IO</a>            
-        </div>
-    </footer>
 </body>
 </html>

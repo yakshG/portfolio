@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finding Keys | Yaksh Goyani</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="nav.js" defer></script>
 </head>
 <body>
     <!-- Back Navigation-->
@@ -14,6 +19,7 @@
             <span class="arrow">←</span>
             <span class="link-text">BACK TO PORTFOLIO</span>
         </a>
+        <div class="nav-social"></div>
     </div>
 
     <!-- Project Header -->
@@ -61,7 +67,7 @@
         <section class="project-section">
             <h2 class="section-heading">OVERVIEW</h2>
             <p>A <strong>2-player online co-op puzzle game</strong> set in a stylized Egypt environment. Both players must find and collect keys hidden throughout the level to unlock the main pyramid door. Puzzles require coordination:  pressure plates, moving platforms, and locked doors are all designed around players working together.</p>
-            <p>Built to learn online multiplayer development in Unreal Engine 5.5.</p>
+            <p>Built to explore online multiplayer development in Unreal Engine 5.5.</p>
         </section>
 
         <!-- Gameplay Video/Image -->
@@ -73,7 +79,7 @@
 
         <!-- What I Made -->
         <section class="project-section">
-            <h2 class="section-heading">What I Made</h2>
+            <h2 class="section-heading">SYSTEMS</h2>
             <div class="content-block">
                 <div class="content-text">
                     <h3>Puzzle Layout</h3>
@@ -110,6 +116,196 @@
                 <video src="videos/FindingKeys_LevelDesign.mp4" autoplay loop muted></video>
             </div>
 
+             <div class="content-block">
+                <div class="content-text">
+                    <h3>Code Snippets</h3>
+                    <details class="code-snippet">
+                        <summary class="code-toggle">Initialize()</summary>
+                        <pre><code class="language-cpp">
+void UMultiplayerSubsystem::Initialize(FSubsystemCollectionBase& Collection)
+{
+
+	IOnlineSubsystem* OnlineSubsystem = IOnlineSubsystem::Get();
+
+	if (OnlineSubsystem)
+	{
+		SubsystemName = OnlineSubsystem->GetSubsystemName().ToString();
+		if (SubsystemName == "NULL")
+		{
+			IsLAN = true;
+		}
+		UE_LOG(LogTemp, Log, TEXT("[MultiplayerSubsystem] OnlineSubsystem: %s"), *SubsystemName);
+		
+		SessionInterface = OnlineSubsystem->GetSessionInterface();
+		if (SessionInterface.IsValid())
+		{
+			CreateSessionCompleteHandle = SessionInterface->OnCreateSessionCompleteDelegates.AddUObject(this, &UMultiplayerSubsystem::OnSessionCreated);
+			StartSessionCompleteHandle = SessionInterface->OnStartSessionCompleteDelegates.AddUObject(this, &UMultiplayerSubsystem::OnSessionStart);
+			DestroySessionCompleteHandle = SessionInterface->OnDestroySessionCompleteDelegates.AddUObject(this, &UMultiplayerSubsystem::OnSessionDestroyed);
+			FindSessionCompleteHandle =SessionInterface->OnFindSessionsCompleteDelegates.AddUObject(this, &UMultiplayerSubsystem::OnSessionFound);
+			JoinSessionCompleteHandle = SessionInterface->OnJoinSessionCompleteDelegates.AddUObject(this, &UMultiplayerSubsystem::OnSessionJoined);
+			InviteAcceptedHandle = SessionInterface->OnSessionUserInviteAcceptedDelegates.AddUObject(this, &UMultiplayerSubsystem::OnSessionInviteAccepted);
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("[MultiplayerSubsystem] Session interface is invalid."));
+		}
+	}
+	else 
+	{
+		UE_LOG(LogTemp, Error, TEXT("[MultiplayerSubsystem] No online subsystem found."));
+	}
+}
+                        </code></pre>
+                    </details>
+
+                    <details class="code-snippet">
+                        <summary class="code-toggle">CreateSession()</summary>
+                        <pre><code class="language-cpp">
+void UMultiplayerSubsystem::CreateSessionInternal(FString ServerName)
+{
+	if (ServerName.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[MultiplayerSubsystem] CreateSession: server name cannot be empty."));
+		SessionCreateDel.Broadcast(false);
+		return;
+	}
+
+	if (!SessionInterface.IsValid())
+	{
+		UE_LOG(LogTemp, Error, TEXT("[MultiplayerSubsystem] CreateSession: session interface invalid."));
+		return;
+	}
+
+	FNamedOnlineSession* ExistingSession = SessionInterface->GetNamedSession(NAME_GameSession);
+
+	if (ExistingSession)
+	{
+		UE_LOG(LogTemp, Log, TEXT("[MultiplayerSubsystem] Existing session found. Destroying before creating new one."));
+		PendingServerName = ServerName;
+		SessionInterface->DestroySession(NAME_GameSession);
+		return;
+	}
+
+	FOnlineSessionSettings SessionSettings;
+	SessionSettings.bIsDedicated = false;
+	SessionSettings.bUsesPresence = true;
+	SessionSettings.bUseLobbiesIfAvailable = true;
+	SessionSettings.bAllowJoinInProgress = true;
+	SessionSettings.bShouldAdvertise = true;
+	SessionSettings.NumPublicConnections = 2;
+	SessionSettings.bAllowJoinViaPresence = true;
+	SessionSettings.bAllowInvites = true;
+	SessionSettings.bAllowJoinViaPresenceFriendsOnly = true;
+	SessionSettings.bIsLANMatch = IsLAN;
+	SessionSettings.Set(FName("SERVER_NAME"), ServerName, EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
+
+	UE_LOG(LogTemp, Log, TEXT("[MultiplayerSubsystem] Creating session '%s' (%s)..."), *ServerName, IsLAN ? TEXT("LAN") : TEXT("Steam"));
+
+	bool Success = SessionInterface->CreateSession(0, NAME_GameSession, SessionSettings);
+	if (!Success)
+	{
+		UE_LOG(LogTemp, Error, TEXT("[MultiplayerSubsystem] CreateSession returned false."));
+	}
+}
+                        </code></pre>
+                    </details>
+
+                    <details class="code-snippet">
+                        <summary class="code-toggle">FindSession()</summary>
+                        <pre><code class="language-cpp">
+void UMultiplayerSubsystem::FindSession(FString ServerName)
+{
+	if (ServerName.IsEmpty())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[MultiplayerSubystem] FindSession: server name cannot be empty."));
+		SessionJoinDel.Broadcast(false);
+		return;
+	}
+
+	if (!SessionInterface.IsValid())
+	{
+		UE_LOG(LogTemp, Error, TEXT("[MultiplayerSubystem] FindSession: session interface invalid."));
+		return;
+	}
+
+	SessionSearch = MakeShareable(new FOnlineSessionSearch());
+	SessionSearch->bIsLanQuery = IsLAN;
+	SessionSearch->MaxSearchResults = 100;
+	SessionSearch->QuerySettings.Set(SEARCH_LOBBIES, true, EOnlineComparisonOp::Equals);
+	SessionSearch->QuerySettings.Set(FName("SERVER_NAME"), ServerName, EOnlineComparisonOp::Equals);
+
+	ServerToJoin = ServerName;
+
+	UE_LOG(LogTemp, Log, TEXT("[MultiplayerSubystem] Searching for session '%s' (%s)..."), *ServerName, IsLAN ? TEXT("LAN") : TEXT("Steam"));
+	SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
+}
+                        </code></pre>
+                    </details>
+
+                    <details class="code-snippet">
+                        <summary class="code-toggle">OnSessionFound()</summary>
+                        <pre><code class="language-cpp">
+void UMultiplayerSubsystem::OnSessionFound(bool WasSuccessful)
+{
+	if (!WasSuccessful) 
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[MultiplayerSubystem] FindSessions failed."));
+		SessionJoinDel.Broadcast(false);
+		return;
+	}
+
+	if (!SessionSearch.IsValid() || !SessionInterface.IsValid() || ServerToJoin.IsEmpty())
+	{
+		UE_LOG(LogTemp, Error, TEXT("[MultiplayerSubystem] OnSessionFound: invalid state (search, interface, or server name)."));
+		SessionJoinDel.Broadcast(false);
+		return;
+	}
+
+	UE_LOG(LogTemp, Log, TEXT("[MultiplayerSubystem] Found %d sessions(s). Searching for '%s'..."), SessionSearch->SearchResults.Num(), *ServerToJoin);
+
+	for (int32 i = 0; i < SessionSearch->SearchResults.Num(); i++)
+	{
+		PrintSessionResults(SessionSearch->SearchResults[i]);
+	}
+
+	FOnlineSessionSearchResult* TargetSession = nullptr;
+	
+	for (auto& SearchResult : SessionSearch->SearchResults)
+	{
+		FString FoundServerName;
+		SearchResult.Session.SessionSettings.Get(FName("SERVER_NAME"), FoundServerName);
+
+		if (FoundServerName == ServerToJoin)
+		{
+			TargetSession = &SearchResult;
+			break;
+		}
+	}
+
+	if (!TargetSession)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[MultiplayerSubystem] No session found with name '%s'."), *ServerToJoin);
+		SessionJoinDel.Broadcast(false);
+		return;
+	}
+
+	UE_LOG(LogTemp, Log, TEXT("[MultiplayerSubsystem] Joining session '%s'..."), *ServerToJoin);
+
+	FOnlineSessionSearchResult MutableResult = *TargetSession;
+	MutableResult.Session.SessionSettings.bUsesPresence = true;
+	MutableResult.Session.SessionSettings.bUseLobbiesIfAvailable = true;
+
+	SessionJoinDel.Broadcast(true);
+	SessionInterface->JoinSession(0, NAME_GameSession, MutableResult);
+}
+                        </code></pre>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
         <!-- Post Mortem -->
         <section class="project-section">
             <h2 class="section-heading">POST MORTEM</h2>
@@ -117,7 +313,7 @@
             <div class="challenge-block">
                 <h3>Challenge: Steam session joining silently failing in UE5.5</h3>
                 <p><strong>Problem:</strong> Sessions were found and returned correctly, but <strong>joining</strong> via Steam consistently <strong>failed with no error</strong> — the join call succeeded internally but the client never traveled to the host.</p>
-                <p><strong>Solution:</strong> The default OnlineSubsystemSteam configuration did not work in net driver initialization. Switching to the <strong>Steam Sockets plugin</strong> and updating the net driver to <strong>SteamSocketsNetDriver</strong> helped, but the fix also required adding specific <strong>session settings during discovery</strong> — without those settings present in the search result, the client had no information to resolve the connection string and never traveled.</p>
+                <p><strong>Solution:</strong> Switching to the <strong>Steam Sockets plugin</strong> and updating the net driver to <strong>SteamSocketsNetDriver</strong> helped, but the fix also required adding specific <strong>session settings during discovery</strong> — without those settings present in the search result, the client had no information to resolve the connection string and never traveled.</p>
             </div>
         </section>
 
@@ -125,25 +321,9 @@
         <section class="project-section">
             <div class="project-links">
                 <a href="https://billawatts.itch.io/finding-keys" target="_blank" class="project-button">PLAY GAME</a>
-                <a href="https://github.com/yakshG/finding-keys-ue5" target="_blank" class="project-button">VIEW SOURCE</a>
+                <a href="https://github.com/yakshG/finding-keys-ue5" target="_blank" class="project-button">VIEW SOURCE CODE</a>
             </div>
         </section>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-text">
-            <p>Developed by Yaksh Goyani | 2026</p>
-            <p>Inspired by Joeb Rogers</p>
-        </div>
-
-        <div class="social-links">
-            <a href="mailto:yakshgoyani@gmail.com" title="email">EMAIL</a>
-            <a href="https://www.linkedin.com/in/ygoyani" target="_blank" title="linkedin">LINKEDIN</a>
-            <a href="https://github.com/yakshG" target="_blank" >GITHUB</a>
-            <a href="https://discord.com/users/794162403616227338" target="_blank" title="discord">DISCORD</a>
-            <a href="https://billawatts.itch.io/" target="_blank" title="itch.io">ITCH.IO</a>          
-        </div>
-    </footer>
 </body>
 </html>

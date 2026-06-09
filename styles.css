@@ -296,6 +296,9 @@ body {
 .project-nav {
     padding: 30px 60px;
     transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .back-link {
@@ -325,6 +328,30 @@ body {
     font-size: 1rem;
     padding-top: 2px;
     display: inline-block;
+}
+
+.nav-social {
+    text-align: right;
+}
+
+.nav-social a {
+    margin: 0px 15px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #910000;
+    font-size: 0.975rem;
+    font-weight: 700;
+    letter-spacing: 0.75px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nav-social a:hover {
+    color: #0A396B;
+    border-bottom-color: #0A396B;
+}
+
+.project-nav:has(.back-link:hover) .nav-social a {
+    color: #FCFCFC;
 }
 
 
@@ -501,6 +528,57 @@ body {
     color:#00965A;
 }
 
+/* -----Code Snippet-----*/
+.code-snippet {
+    margin: 15px 0;
+}
+
+.code-toggle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0A396B;
+    cursor: pointer;
+    padding: 5px 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+}
+
+.code-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.code-toggle::before {
+    content: "+";
+    color: #910000;
+    transition: transform 0.2s ease;
+}
+
+details[open] .code-toggle::before {
+    content: "−";
+    transform: none;
+}
+
+.code-toggle:hover {
+    color: #910000;
+}
+
+.code-snippet pre {
+    margin: 0;
+    border-radius: 0;
+}
+
+.code-snippet pre code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    padding: 5px 20px !important;
+}
+
 /* -----Challenge Blocks----- */
 .challenge-block {
     background-color: #f9f9f9;
@@ -610,6 +688,10 @@ footer {
         padding: 20px 30px;
     }
 
+    .link-text {
+        display: none;
+    }
+
     .project-header {
         padding: 60px 30px 40px;
     }
@@ -708,6 +790,14 @@ footer {
         gap: 30px 40px;
     }
 
+    .code-snippet pre code {
+        font-size: 0.7rem;
+    }
+
+    .code-snippet {
+        overflow-x: auto;
+    }
+
     footer {
         padding: 20px 0px;
         flex-direction: column;
@@ -755,6 +845,14 @@ footer {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+
+    .code-snippet pre code {
+        font-size: 0.8rem;
+    }
+
+    .code-snippet {
+    overflow-x: auto;
+}
 
     footer {
         flex-direction: column;
